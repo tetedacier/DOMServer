@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+COVERAGE_REPORT() {
+    rm -rf coverage;
+    deno test --coverage --no-check ui/design-token.test.ts && (
+        deno coverage --html;
+    );
+}
+WATCH_TEST() {
+    rm -rf coverage;
+    deno test --watch --no-check ui/design-token.test.ts;
+}

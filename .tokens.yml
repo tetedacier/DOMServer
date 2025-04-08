@@ -1,0 +1,49 @@
+# alternative to https://tr.designtokens.org/format/#file-format doctrine
+# => https://tr.designtokens.org/format/#media-type-mime-type 'application/design-tokens+yml'
+theme:
+  primary:
+    color:
+      background:
+        $value: "#111111"
+      foreground:
+        $value: "#efefef"
+action:
+  state:
+    focused:
+      opacity:
+        $type: number
+        $value: 1
+    disabled:
+      opacity:
+        $type: number
+        $value: .5
+    idle:
+      opacity:
+        $type: number
+        $value: .8
+
+shadow-token:
+  $type: shadow
+  $value:
+    color: "#00000080"
+    offsetX: { value: 0.5, unit: rem }
+    offsetY: { value: 0.5, unit: rem }
+    blur: { value: 1.5, unit: rem }
+    spread: { value: 0, unit: rem }
+Button background:
+  $value: rgga(0,0,0,.5)
+  $deprecated: |
+    Missing `$type` and wrong value
+font-size:
+  $value: { value: 3, unit: rem }
+  $type: dimension
+  $description: |
+    <html>
+
+    </html>
+  $extension:
+    $deprecated: true #?
+    org.example.tool-a: 42
+    org.example.tool-b:
+      turn-up-to-11: true
+      $deprecated: false #?

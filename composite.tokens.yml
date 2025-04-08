@@ -1,0 +1,31 @@
+space:
+  small:
+    $type: dimension
+    $value":
+      value: 0.5
+      unit: rem
+color:
+  shadow-050:
+    $type: color
+    $value: "#00000080"
+shadow:
+  medium:
+    $type: shadow
+    $description: |
+      A composite token where some sub-values are references to tokens that have the correct type and others are explicit values
+    $value:
+      color: "{color.shadow-050}"
+      offsetX: "{space.small}"
+      offsetY: "{space.small}"
+      blur:
+        value: 1.5,
+        unit: rem
+      spread:
+        value: 0
+        unit: rem
+component:
+  card:
+    box-shadow:
+      $description: |
+        This token is an alias for the composite token {shadow.medium}
+      $value: "{shadow.medium}"
