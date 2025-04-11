@@ -15,3 +15,8 @@ WATCH_TEST() {
 SERVER() {
     deno run --allow-net --watch-hmr src/server.ts
 }
+
+FRONT_INTERFACES() {
+    cd application/client || exit 1;
+    deno task dev
+}
