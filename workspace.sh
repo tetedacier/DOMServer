@@ -6,7 +6,12 @@ COVERAGE_REPORT() {
         deno coverage --html;
     );
 }
+
 WATCH_TEST() {
     rm -rf coverage;
     deno test --watch --no-check ui/design-token.test.ts;
+}
+
+SERVER() {
+    deno run --allow-net --watch-hmr src/server.ts
 }
