@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --watch yamlReader.ts"
+    "socket": "deno run --watch ./src/socket.ts",
+    "dev": "deno run --watch ./yamlReader.ts"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
