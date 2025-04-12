@@ -19,4 +19,5 @@ SERVER() {
 FRONT_INTERFACES() {
     cd application/client || exit 1;
     deno task dev
+    cd ../..
 }
