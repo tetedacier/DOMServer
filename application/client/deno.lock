@@ -5,6 +5,7 @@
     "npm:@types/react-dom@^19.0.4": "19.1.2_@types+react@19.1.0",
     "npm:@types/react@^19.0.10": "19.1.0",
     "npm:@vitejs/plugin-react@^4.3.4": "4.3.4_vite@6.2.5_@babel+core@7.26.10",
+    "npm:jwt-decode@4": "4.0.0",
     "npm:react-dom@19": "19.1.0_react@19.1.0",
     "npm:react@19": "19.1.0",
     "npm:rolldown-vite@latest": "6.3.0-beta.6_picomatch@4.0.2_@oxc-project+runtime@0.63.0",
@@ -543,6 +544,9 @@
     "json5@2.2.3": {
       "integrity": "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg=="
     },
+    "jwt-decode@4.0.0": {
+      "integrity": "sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA=="
+    },
     "lightningcss-darwin-arm64@1.29.3": {
       "integrity": "sha512-fb7raKO3pXtlNbQbiMeEu8RbBVHnpyqAoxTyTRMEWFQWmscGC2wZxoHzZ+YKAepUuKT9uIW5vL2QbFivTgprZg=="
     },
@@ -741,6 +745,7 @@
       "npm:@types/react-dom@^19.0.4",
       "npm:@types/react@^19.0.10",
       "npm:@vitejs/plugin-react@^4.3.4",
+      "npm:jwt-decode@4",
       "npm:react-dom@19",
       "npm:react@19",
       "npm:rolldown-vite@latest"
