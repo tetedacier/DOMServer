@@ -27,7 +27,7 @@ export class Connexion {
   #socket: WebSocket;
   sendMessage(message: string) {
     console.log(message);
-    this.#socket.send(message);
+    this.#socket.send(JSON.stringify({message}));
   }
   constructor(username: string, password: string) {
     this.#socket = new WebSocket(
@@ -73,7 +73,7 @@ export class Connexion {
         // Start sending messages
         this.#socket.send(JSON.stringify({
           type: "message",
-          content: "Hello, authenticated world!",
+          content: `${username}: "Hello, authenticated world!"`,
         }));
       } else if (data.type === "error") {
         console.error("Error:", data.message);

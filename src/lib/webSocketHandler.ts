@@ -10,7 +10,6 @@ export default function webSocketHandler(ws: WebSocket) {
   ws.onmessage = async (message) => {
     try {
       const data = JSON.parse(message.data);
-      console.log({ message, data });
 
       // Handle authentication
       if (data.type === "auth") {
@@ -43,14 +42,17 @@ export default function webSocketHandler(ws: WebSocket) {
       }
 
       // Handle authenticated messages
-      console.log(
-        `Received message from ${authenticatedUser[0]}: ${message.data}`,
-      );
+      console.log(`Received message from ${authenticatedUser[0]}: ${message.data}`);
 
       // Broadcast message to all authenticated clients
-      clients.forEach((client) => {
+      Array.from(clients.entries()).forEach(([userKey, client])=> {
+        if(userKey === authenticatedUser[0]) {
+          return;
+        }
         if (client.readyState === WebSocket.OPEN) {
-          client.send(message.data);
+          client.send(JSON.stringify({from: authenticatedUser[0], payload: message.data}));
+        } else {
+          console.log( `Client ${client.url} is not open`);
         }
       });
     } catch (err) {
