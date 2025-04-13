@@ -1,3 +1,5 @@
+// Base designtokens validator and builder should rely on [postcss implementation](https://github.com/postcss)
+
 export default Object.freeze({
   color: (value: unknown) => {
     // see postcss project

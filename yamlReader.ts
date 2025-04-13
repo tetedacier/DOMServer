@@ -1,5 +1,10 @@
 import { parse } from "jsr:@std/yaml";
 const textDecoder = new TextDecoder();
+/**
+ * Some information about basic yaml format can be found at:
+ * - [YAML Multiline](https://yaml-multiline.info/)
+ */
+
 Promise.allSettled([
   Deno.readFile("./minimal.tokens.yml"),
   Deno.readFile(".tokens.yml"),

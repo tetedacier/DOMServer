@@ -1,6 +1,14 @@
 import authenticationHandler from "./lib/authenticationHandler.ts";
 import webSocketHandler from "./lib/webSocketHandler.ts";
-
+/**
+ * Adapted from Claude sonnet 3.5 reponse to the following prompt
+ * @prompt How setup authentication support in deno socket server project ?
+ * More information available on:
+ * - deno documentation
+ * - [Using WebSockets with Deno - LogRocket Blog](https://blog.logrocket.com/using-websockets-with-deno/)
+ * - [WebSocket() - Les API Web | MDN](https://developer.mozilla.org/fr/docs/Web/API/WebSocket/WebSocket)
+ * - [RFC-6455 - The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
+ */
 function setCorsHeaders(headers: Headers) {
   headers.set("Access-Control-Allow-Origin", "*");
   headers.set("Access-Control-Allow-Credentials", "true");
