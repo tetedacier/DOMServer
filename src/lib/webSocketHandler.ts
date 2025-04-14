@@ -22,8 +22,8 @@ export default function webSocketHandler(ws: WebSocket) {
           return;
         }
 
-        // Store authenticated client
-        clients.set(payload.username, ws);
+        // Store authenticated client with unique uuid
+        clients.set(`${payload.username}[${crypto.randomUUID()}]`, ws);
         ws.send(JSON.stringify({ type: "auth_success" }));
         return;
       }
@@ -33,24 +33,25 @@ export default function webSocketHandler(ws: WebSocket) {
       const authenticatedUser = Array.from(clients.entries()).find(
         ([_, client]) => client === ws,
       );
-
       if (!authenticatedUser) {
         ws.send(
           JSON.stringify({ type: "error", message: "Not authenticated" }),
         );
         return;
       }
+      const [authenticatedUserName, authenticatedUserUuid] = authenticatedUser[0].split(/\[|\]/);
+      console.log({authenticatedUserName, authenticatedUserUuid});
 
       // Handle authenticated messages
-      console.log(`Received message from ${authenticatedUser[0]}: ${message.data}`);
+      console.log(`Received message from ${authenticatedUserName}[${authenticatedUserUuid}]: ${message.data}`);
 
       // Broadcast message to all authenticated clients
       Array.from(clients.entries()).forEach(([userKey, client])=> {
-        if(userKey === authenticatedUser[0]) {
+        if(client === ws) {
           return;
         }
         if (client.readyState === WebSocket.OPEN) {
-          client.send(JSON.stringify({from: authenticatedUser[0], payload: message.data}));
+          client.send(JSON.stringify({from: {username: authenticatedUserName, uuid: authenticatedUserUuid}, payload: message.data}));
         } else {
           console.log( `Client ${client.url} is not open`);
         }
