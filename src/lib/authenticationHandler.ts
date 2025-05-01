@@ -9,7 +9,6 @@ const users = new Map([
 export default async function authenticationHandler(
   req: Request,
 ): Promise<Response> {
-  console.log(req.method);
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
   }
