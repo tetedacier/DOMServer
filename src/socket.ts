@@ -1,5 +1,7 @@
 import authenticationHandler from "./lib/authenticationHandler.ts";
 import webSocketHandler from "./lib/webSocketHandler.ts";
+import roomsHandler from "./lib/roomsHandler.ts";
+
 /**
  * Adapted from Claude sonnet 3.5 reponse to the following prompt
  * @prompt How setup authentication support in deno socket server project ?
@@ -40,7 +42,14 @@ Deno.serve({ port: 3000, hostname: "127.0.0.1" }, async (req) => {
     );
     webSocketHandler(socket as unknown as WebSocket);
     return response;
-  } else {
+  } else if(url.pathname === "/room") {
+
+    const response = await roomsHandler(req);
+      setCorsHeaders(response.headers);
+      return response;
+  } else if(url.pathname.startsWith("/room")) {
+
+  }else {
     return new Response(
       "Not found",
       { status: 404 },
