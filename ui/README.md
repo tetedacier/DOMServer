@@ -1,3 +1,3 @@
-- Ongoing discussion on deigntokens takes place at [Design Tokens Community Group](https://github.com/design-tokens/community-group)
+- Ongoing discussion on design tokens takes place in the [Design Tokens Community Group](https://github.com/design-tokens/community-group)
 - Activities are shown at [DESIGN TOKENS COMMUNITY GROUP](https://www.w3.org/community/design-tokens/)
 - [Api description for w3 design token infrastructure](https://api.w3.org/groups/cg/design-tokens)
