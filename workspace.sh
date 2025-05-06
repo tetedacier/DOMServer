@@ -9,6 +9,10 @@ COVERAGE_REPORT() {
     );
 }
 
+TSX_AST() {
+    deno run --allow-read --allow-write --allow-env --allow-sys tools/tsx-ast.mjs
+}
+
 WATCH_TEST() {
     rm -rf coverage;
     deno test --watch --no-check ui/design-token.test.ts;
