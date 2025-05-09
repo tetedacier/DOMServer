@@ -2,6 +2,10 @@
 # Investigate zed shell support
 # Investigate zed cspell support
 # - https://zed.dev/docs/languages/sh
+# missing binary availability:
+# - jq
+# - deno
+# - rm
 COVERAGE_REPORT() {
     rm -rf coverage;
     deno test --coverage --no-check ui/design-token.test.ts && (
