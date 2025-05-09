@@ -30,5 +30,19 @@ FRONT_INTERFACES() {
 
 GENERATE_USER_DATABASE() {
     rm infra.db;
-    deno run --allow-read=infra.db --allow-write=infra.db src/lib/sqlite.ts
+    deno run --allow-read=infra.db --allow-write=infra.db src/lib/sqlite.ts;
+}
+KEYCLOAK_API_STATS() {
+    # keycloak open api is stored in this repository
+    # if you need to update, simply remove `vendors/keycloak/openapi.yaml` file
+    # below script will download the latest version
+    if [ ! -f vendors/keycloak/openapi.yaml ]; then
+        curl -fo vendors/keycloak/openapi.yaml https://www.keycloak.org/docs-api/latest/rest-api/openapi.yaml \
+            || return "$?";
+    fi
+
+    deno run \
+        --allow-read=vendors/keycloak/openapi.yaml \
+        vendors/keycloak/apiStatistics.ts | \
+        jq '.paths | length';
 }
